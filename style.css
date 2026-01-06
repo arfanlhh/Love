@@ -1,3 +1,8 @@
+/* =========================================
+   STYLE.CSS - Open When Website
+   Author: [Nama Kamu]
+   ========================================= */
+
 :root {
     --primary: #ff9a9e;
     --secondary: #fad0c4;
@@ -6,12 +11,111 @@
     --glass-border: rgba(255, 255, 255, 0.8);
 }
 
-/* Style Input Login */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    min-height: 100vh;
+    overflow: hidden; /* Mencegah scroll di body utama */
+    color: var(--text);
+}
+
+/* =========================================
+   LAYOUT UTAMA (FIX CENTER)
+   ========================================= */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Tengahkan Horizontal */
+    align-items: center;     /* Tengahkan Vertikal */
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   COMPONENT: GLASS CARD
+   ========================================= */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+    /* Layout & Sizing */
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    text-align: center;
+    
+    /* Scroll Logic (Biar bisa discroll kalau konten panjang) */
+    max-height: 85vh; 
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+
+    /* Animasi Masuk */
+    animation: fadeIn 0.8s ease-out;
+    transition: transform 0.3s ease;
+}
+
+/* Custom Scrollbar Cantik */
+.card::-webkit-scrollbar {
+    width: 6px;
+}
+.card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.card::-webkit-scrollbar-thumb {
+    background: rgba(255, 154, 158, 0.5);
+    border-radius: 10px;
+}
+.card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 154, 158, 0.8);
+}
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
+.title {
+    font-family: 'Satisfy', cursive; /* Font pilihanmu */
+    font-size: 3rem;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* =========================================
+   LOGIN FORM STYLE
+   ========================================= */
 .input-group {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
+    width: 100%;
 }
 
 #pass-input {
@@ -42,77 +146,13 @@
 }
 
 #btn-login {
-    padding: 12px 18px; /* Ukuran tombol login */
+    padding: 12px 18px;
     font-size: 1.2rem;
 }
 
-/* Animasi Shake (Getar) kalau password salah */
-.shake {
-    animation: shake 0.5s;
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'poppins', sans-serif;
-    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: var(--text);
-}
-
-/* Glassmorphism Card */
-.card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.title {
-    font-family: 'Satisfy', cursive;
-    font-size: 3rem;
-    color: #d63384;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-.description {
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-    color: #666;
-}
-
-/* Grid Tombol */
+/* =========================================
+   BUTTONS & CONTENT
+   ========================================= */
 .buttons-grid {
     display: flex;
     flex-direction: column;
@@ -138,7 +178,6 @@ button:hover {
     background: #fff0f6;
 }
 
-/* Halaman Pesan */
 .hidden {
     display: none;
 }
@@ -151,59 +190,53 @@ button:hover {
     font-size: 0.9rem;
 }
 
-/* GANTI BAGIAN INI DI style.css */
+/* =========================================
+   IMAGE & TEXT STYLE
+   ========================================= */
 #msg-image {
-    width: 100%; /* Lebar penuh */
-    height: 500px; /* Tinggi dipaksa tetap segini */
-    object-fit: cover; /* KUNCI: Gambar dicrop biar pas mengisi kotak, nggak gepeng */
-    
+    width: 100%;
+    height: 500px; /* Tinggi yang kamu minta */
+    object-fit: cover; /* Biar gambar tercrop rapi (gak gepeng) */
+    object-position: center;
     border-radius: 15px;
     margin-bottom: 1.5rem;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    object-position: center ; /* Fokus crop di bagian tengah agak atas (biasanya wajah) */
 }
 
 #msg-text {
     line-height: 1.6;
-    white-space: pre-line; /* Agar enter di JS terbaca */
+    white-space: pre-line;
 }
 
-/* Animasi Fade In */
-.card {
-    /* Properti lama biarkan saja (background, backdrop-filter, dll) */
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    
-    /* --- TAMBAHAN BARU UNTUK SCROLL --- */
-    padding: 2rem; 
-    max-height: 85vh; /* Tinggi maks 85% dari layar HP */
-    overflow-y: auto; /* Munculkan scroll kalau konten kepanjangan */
-    
-    /* Biar scroll-nya smooth di HP */
-    -webkit-overflow-scrolling: touch; 
-}
-
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+/* Fade In */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Background Stars Animation (Optional) */
+/* Shake (Password Salah) */
+.shake {
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Floating Hearts Background */
 .bg-animation {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
+    pointer-events: none;
 }
-/* Tambahkan class ini di div kosong di HTML kalau mau manual, 
-   tapi biar gampang kita pakai pseudo-element di body atau container */
-   
+
 .bg-animation::before {
     content: "❤️";
     position: absolute;
@@ -229,67 +262,55 @@ button:hover {
     100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
 
-/* Custom Scrollbar Cantik */
-.card::-webkit-scrollbar {
-    width: 6px; /* Lebar scrollbar tipis */
-}
-
-.card::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Track transparan */
-    border-radius: 10px;
-    margin: 10px 0; /* Jarak atas bawah */
-}
-
-.card::-webkit-scrollbar-thumb {
-    background: rgba(255, 154, 158, 0.5); /* Warna pink transparan */
-    border-radius: 10px;
-}
-
-.card::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 154, 158, 0.8); /* Warna pink lebih pekat pas disentuh */
-}
 /* =========================================
-   FIX UNTUK HP (RESPONSIVE)
-   Taruh di bagian paling bawah style.css
+   RESPONSIVE (HP) - FINAL FIX
    ========================================= */
 @media only screen and (max-width: 600px) {
     
-    /* 1. Perlebar kartu di HP & kurangi padding */
+    .container {
+        padding: 0 10px; /* Jarak aman pinggir layar */
+    }
+
     .card {
-        width: 95%; /* Hampir memenuhi layar */
-        padding: 1.5rem 1rem; /* Atas-Bawah 1.5rem, Kiri-Kanan 1rem (lebih tipis) */
+        width: 100%; 
+        max-width: 350px; 
         
-        /* Paksa konten di dalamnya ke tengah axis */
+        /* KUNCI SUPAYA PAS TENGAH */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        
+        padding: 1.5rem 1rem;
         display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
     }
-
-    /* 2. Pastikan semua teks & elemen rata tengah */
-    .content, .subtitle, .description, #msg-text {
-        text-align: center;
-        width: 100%; /* Pastikan elemen mengambil lebar penuh */
-    }
-
-    /* 3. Kecilkan Judul biar gak nabrak pinggir */
-    .title {
-        font-size: 2.5rem; 
-        line-height: 1.2;
-    }
-
-    /* 4. Fix tombol Login biar sejajar di tengah */
+    
+    /* Login Fix */
     .input-group {
         width: 100%;
-        justify-content: center; /* Pastikan input & tombol ada di tengah */
+        display: flex;
+        justify-content: center;
     }
-
+    
     #pass-input {
-        width: 60%; /* Lebar input login di HP */
+        width: 60%;
+        text-align: center;
     }
 
-    /* 5. Fix Gambar biar gak kegeser */
+    /* Text Adjustments */
+    .title {
+        font-size: 2.5rem; 
+    }
+    
+    .content, #msg-text {
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Image Adjustment for Small Screens */
+    /* Opsional: Ubah tinggi gambar di HP biar gak makan layar banget */
     #msg-image {
+        height: 350px; /* Sedikit lebih pendek khusus HP */
         max-width: 100%;
-        margin: 0 auto 1.5rem auto; /* Margin auto kiri-kanan wajib */
     }
 }
