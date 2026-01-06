@@ -1,0 +1,250 @@
+:root {
+    --primary: #ff9a9e;
+    --secondary: #fad0c4;
+    --text: #555;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.8);
+}
+
+/* Style Input Login */
+.input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#pass-input {
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: #d63384;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    width: 60%;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#pass-input:focus {
+    background: white;
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.2);
+}
+
+#pass-input::placeholder {
+    color: #999;
+    letter-spacing: 1px;
+}
+
+#btn-login {
+    padding: 12px 18px; /* Ukuran tombol login */
+    font-size: 1.2rem;
+}
+
+/* Animasi Shake (Getar) kalau password salah */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text);
+}
+
+/* Glassmorphism Card */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.title {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Grid Tombol */
+.buttons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    color: #d63384;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(214, 51, 132, 0.2);
+    background: #fff0f6;
+}
+
+/* Halaman Pesan */
+.hidden {
+    display: none;
+}
+
+.btn-back {
+    background: transparent;
+    color: #555;
+    box-shadow: none;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* GANTI BAGIAN INI DI style.css */
+#msg-image {
+    width: 100%; /* Lebar penuh */
+    height: 500px; /* Tinggi dipaksa tetap segini */
+    object-fit: cover; /* KUNCI: Gambar dicrop biar pas mengisi kotak, nggak gepeng */
+    
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    object-position: center ; /* Fokus crop di bagian tengah agak atas (biasanya wajah) */
+}
+
+#msg-text {
+    line-height: 1.6;
+    white-space: pre-line; /* Agar enter di JS terbaca */
+}
+
+/* Animasi Fade In */
+.card {
+    /* Properti lama biarkan saja (background, backdrop-filter, dll) */
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    
+    /* --- TAMBAHAN BARU UNTUK SCROLL --- */
+    padding: 2rem; 
+    max-height: 85vh; /* Tinggi maks 85% dari layar HP */
+    overflow-y: auto; /* Munculkan scroll kalau konten kepanjangan */
+    
+    /* Biar scroll-nya smooth di HP */
+    -webkit-overflow-scrolling: touch; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Background Stars Animation (Optional) */
+.bg-animation {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+}
+/* Tambahkan class ini di div kosong di HTML kalau mau manual, 
+   tapi biar gampang kita pakai pseudo-element di body atau container */
+   
+.bg-animation::before {
+    content: "❤️";
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s linear infinite;
+    left: 10%; bottom: -10%;
+    opacity: 0.6;
+}
+
+.bg-animation::after {
+    content: "💖";
+    position: absolute;
+    font-size: 3rem;
+    animation: float 8s linear infinite;
+    animation-delay: 2s;
+    right: 20%; bottom: -10%;
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Custom Scrollbar Cantik */
+.card::-webkit-scrollbar {
+    width: 6px; /* Lebar scrollbar tipis */
+}
+
+.card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Track transparan */
+    border-radius: 10px;
+    margin: 10px 0; /* Jarak atas bawah */
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: rgba(255, 154, 158, 0.5); /* Warna pink transparan */
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 154, 158, 0.8); /* Warna pink lebih pekat pas disentuh */
+}

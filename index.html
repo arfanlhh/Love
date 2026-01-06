@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="For You, [Nama Pacarmu] ❤️">
+    <meta property="og:description" content="Open this when you need me...">
+    <meta property="og:image" content="https://link-gambar-thumbnail-kamu.jpg"> 
+    <meta property="og:url" content="https://website-kamu.com">
+    <meta name="theme-color" content="#ff9a9e">
+    
+    <title>Open When You Need Me</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Sacramento&family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+    </div>
+
+    <div class="container">
+        
+        <section id="login-page" class="card glass">
+            <h1 class="title">Hello, Love!</h1>
+            <p class="subtitle">Please enter our special date</p>
+            <br>
+            <div class="input-group">
+                <input type="password" id="pass-input" placeholder="DDMMYY" maxlength="6">
+                <button id="btn-login">❤️</button>
+            </div>
+            <p id="error-msg" class="hidden" style="color: #d63384; margin-top: 10px; font-size: 0.8rem;">
+                Salah sayang, coba inget lagi 😝
+            </p>
+        </section>
+
+        <section id="menu-page" class="card glass hidden">
+            <h1 class="title">Open This...</h1>
+            <p class="subtitle">When You Need Me</p>
+            <p class="description">Aku mungkin nggak selalu di samping kamu, tapi aku selalu ada buat kamu.</p>
+            
+            <div class="buttons-grid">
+                <button class="btn-open" data-id="miss">💌 When you miss me</button>
+                <button class="btn-open" data-id="sleep">🌙 When you can't sleep</button>
+                <button class="btn-open" data-id="insecure">💔 When you feel insecure</button>
+                <button class="btn-open" data-id="sad">😔 When you're sad</button>
+            </div>
+        </section>
+
+        <section id="message-page" class="card glass hidden">
+            <button class="btn-back">← Kembali</button>
+            <div class="content">
+                <img id="msg-image" src="" alt="Moment Kita" class="hidden">
+                <h2 id="msg-title">Judul</h2>
+                <p id="msg-text">Isi pesan...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/musik1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
