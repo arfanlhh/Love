@@ -248,3 +248,48 @@ button:hover {
 .card::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 154, 158, 0.8); /* Warna pink lebih pekat pas disentuh */
 }
+/* =========================================
+   FIX UNTUK HP (RESPONSIVE)
+   Taruh di bagian paling bawah style.css
+   ========================================= */
+@media only screen and (max-width: 600px) {
+    
+    /* 1. Perlebar kartu di HP & kurangi padding */
+    .card {
+        width: 95%; /* Hampir memenuhi layar */
+        padding: 1.5rem 1rem; /* Atas-Bawah 1.5rem, Kiri-Kanan 1rem (lebih tipis) */
+        
+        /* Paksa konten di dalamnya ke tengah axis */
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    /* 2. Pastikan semua teks & elemen rata tengah */
+    .content, .subtitle, .description, #msg-text {
+        text-align: center;
+        width: 100%; /* Pastikan elemen mengambil lebar penuh */
+    }
+
+    /* 3. Kecilkan Judul biar gak nabrak pinggir */
+    .title {
+        font-size: 2.5rem; 
+        line-height: 1.2;
+    }
+
+    /* 4. Fix tombol Login biar sejajar di tengah */
+    .input-group {
+        width: 100%;
+        justify-content: center; /* Pastikan input & tombol ada di tengah */
+    }
+
+    #pass-input {
+        width: 60%; /* Lebar input login di HP */
+    }
+
+    /* 5. Fix Gambar biar gak kegeser */
+    #msg-image {
+        max-width: 100%;
+        margin: 0 auto 1.5rem auto; /* Margin auto kiri-kanan wajib */
+    }
+}
